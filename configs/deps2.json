@@ -1,0 +1,13 @@
+{
+    "seed"      : 123,
+    "algos"     : ["d-RCD", "sigma-RCD"],
+    "target"    : "num_dependencies",
+    "num_trials": 100,
+    "params" : {
+        "num_entities"      :   2,
+        "num_dependencies"  :   [4, 6, 8, 10, 12],
+        "num_feedback_loops":   1,
+        "hop_threshold"     :   2,
+        "max_depth"         :   3
+    }
+}

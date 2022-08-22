@@ -1,0 +1,13 @@
+{
+    "seed"      : 123,
+    "algos"     : ["RelFCI"],
+    "target"    : "num_feedback_loops",
+    "num_trials": 5,
+    "params" : {
+        "num_entities"      :   2,
+        "num_dependencies"  :   6,
+        "num_feedback_loops":   [2],
+        "hop_threshold"     :   2,
+        "max_depth"         :   3
+    }
+}
