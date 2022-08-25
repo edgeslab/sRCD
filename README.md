@@ -28,6 +28,8 @@ This is a modified version of the causal structure learning algorithm called Rel
 ----------
 **References**
 
-Sanghack Lee and Vasant Honavar (2016) On Learning Causal Models for Relational Data.  In *Proceedings of Thirtieth AAAI Conference on Artificial Intelligence (AAAI 2016),* *To Appear*.
+Ragib Ahsan, David Arbour, Elena Zheleva (2022) Relational Causal Models with Cycle: Representation and Reasoning. In *Proceedings of 1st Conference on Causal Learning and Representation (CLeaR 2016)*.
+
+Sanghack Lee and Vasant Honavar (2016) On Learning Causal Models for Relational Data.  In *Proceedings of Thirtieth AAAI Conference on Artificial Intelligence (AAAI 2016)*.
 
 Marc Maier, Katerina Marazopoulou, David Arbour, and David Jensen (2013) A sound and complete algorithm for learning causal models from relational data. In *Proceedings of the Twenty-Ninth UAI Conference on Uncertainty in Artificial Intelligence, (UAI-2013)*
