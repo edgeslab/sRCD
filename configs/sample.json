@@ -1,6 +1,6 @@
 {
     "seed"      : 123,
-    "algos"     : ["RelFCI"],
+    "algos"     : ["d-RCD", "sigma-RCD"],
     "target"    : "num_feedback_loops",
     "num_trials": 5,
     "params" : {
