@@ -9,7 +9,7 @@ from ..model.Distribution import PoissonMarginalDistribution
 from ..model.Schema import Schema
 
 def generateSchema(numEntities, numRelationships,
-                   entityAttrDistribution=PoissonMarginalDistribution(1),
+                   entityAttrDistribution=PoissonMarginalDistribution(2.4),
                    relationshipAttrDistribution=PoissonMarginalDistribution(1),
                    entityPairPicker=random.sample,
                    cardinalityDistribution=DiscreteMarginalDistribution({Schema.ONE: 0.0, Schema.MANY: 1.0}),

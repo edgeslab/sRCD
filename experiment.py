@@ -34,7 +34,7 @@ algo_map = {
 }
 
 EVAL_ITEMS      = ['a', 'f']
-EVAL_METRICS    = [[i+'_precision', i+'_recall'] for i in EVAL_ITEMS]
+EVAL_METRICS    = [[i+'_precision', i+'_recall', i+'_f1'] for i in EVAL_ITEMS]
 EVAL_METRICS    = [item for sublist in EVAL_METRICS for item in sublist]
 EVAL_METRICS    = EVAL_METRICS + ['rule_CD', 'rule_RBO', 'rule_KNC', 'rule_CA', 'rule_MR3']
 
@@ -42,7 +42,7 @@ EVAL_METRICS    = EVAL_METRICS + ['rule_CD', 'rule_RBO', 'rule_KNC', 'rule_CA', 
 def build_model(params):
     random.seed(params['rseed'])
     np.random.seed(params['rseed'])
-    print('trying seed {} ...'.format(params['rseed']))
+    print('\ntrying seed {} ...'.format(params['rseed']))
 
     numEntities = params['num_entities']
     numDependencies = params['num_dependencies']
@@ -116,8 +116,12 @@ def run_exp(i, config, logger):
             # results['%s_s_precision' % name].append(ModelEvaluation.skeletonPrecision(model, algoObj.undirectedDependencies))
             # results['%s_s_recall' % name].append(ModelEvaluation.skeletonRecall(model, algoObj.undirectedDependencies))
 
-            results['%s_f_precision' % name].append(ModelEvaluation.feedbackPrecision(trueAggs, algoObj.perspectiveToAgg))
-            results['%s_f_recall' % name].append(ModelEvaluation.feedbackRecall(trueAggs, algoObj.perspectiveToAgg))
+            p = ModelEvaluation.feedbackPrecision(trueAggs, algoObj.perspectiveToAgg)
+            r = ModelEvaluation.feedbackRecall(trueAggs, algoObj.perspectiveToAgg)
+            f1 = 2 * (p * r) / (p + r) if (p+r)>0 else 0.0
+            results['%s_f_precision' % name].append(p)
+            results['%s_f_recall' % name].append(r)
+            results['%s_f_f1' % name].append(f1)
 
             # p, r, f1 = ModelEvaluation.parentalQuery(trueAggs, algoObj.perspectiveToAgg, isPossibleParent)
             # results['%s_p_precision' % name].append(p)
@@ -126,6 +130,7 @@ def run_exp(i, config, logger):
             p, r, f1 = ModelEvaluation.parentalQuery(trueAggs, algoObj.perspectiveToAgg, isPossibleAncestor)
             results['%s_a_precision' % name].append(p)
             results['%s_a_recall' % name].append(r)
+            results['%s_a_f1' % name].append(f1)
 
             # a1 = r
             # if a1 > 0 and a1 < 1.0:

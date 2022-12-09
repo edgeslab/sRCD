@@ -92,8 +92,8 @@ def generateModel(schema, hopThreshold, numDependencies, numFeedbackLoops, maxNu
     if not validAggSize(schema, model, hopThreshold):
         raise Exception("Could not generate a model: max AGG size exceeds limit {},{}".format(15, 30))
 
-    if not hasValidRelAcyclifications(schema, model):
-        raise Exception("Could not generate a model: cannot have valid relational acyclifications")
+    # if not hasValidRelAcyclifications(schema, model):
+    #     raise Exception("Could not generate a model: cannot have valid relational acyclifications")
 
     return model
 
@@ -110,12 +110,18 @@ def connectedAggs(schema, model, hopThreshold):
 
 def validAggSize(schema, model, hopThreshold):
     perspectives = [si.name for si in schema.getSchemaItems()]
-    max_nodes, max_edges = 0, 0
+    max_nodes, max_edges, max_density = 0, 0, 0
     for perspective in perspectives:
         agg = AbstractGroundGraph(model, perspective, 2*hopThreshold)
         max_nodes = max(len(agg), max_nodes)
         max_edges = max(len(agg.edges()), max_edges)
-    return max_nodes <= 15 and max_edges <= 30
+        density = nx.density(agg)
+        max_density = max(density, max_density)
+    # print('num nodes: {} <=> {}'.format(max_nodes, (max_nodes >= 5 and max_nodes <= 40) ))
+    # print('density: {}'.format(max_density))
+    check = max_nodes <= 50 and (max_density >= 0.3 and max_density <= 0.5)     #single entity
+    # check = max_nodes <= 50 and (max_density >= 0.05 and max_density <= 0.1)  #multi entity
+    return check
         
 
 def hasValidRelAcyclifications(schema, model):
