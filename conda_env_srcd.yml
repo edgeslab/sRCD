@@ -52,4 +52,3 @@ dependencies:
     - six==1.13.0
     - wcwidth==0.1.7
     - zipp==0.6.0
-prefix: /Users/rahsan3/opt/anaconda3/envs/crcd
