@@ -28,6 +28,8 @@ This is a modified version of the causal structure learning algorithm called Rel
 ----------
 **References**
 
+Ragib Ahsan, David Arbour, Elena Zheleva (2023) Learning Relational Causal Models with Cycles through Relational Acyclification. In *Proceedings of Thirty-sixth AAAI Conference on Artificial Intelligence (AAAI 2023)*. 
+
 Ragib Ahsan, David Arbour, Elena Zheleva (2022) Relational Causal Models with Cycle: Representation and Reasoning. In *Proceedings of 1st Conference on Causal Learning and Representation (CLeaR 2016)*.
 
 Sanghack Lee and Vasant Honavar (2016) On Learning Causal Models for Relational Data.  In *Proceedings of Thirtieth AAAI Conference on Artificial Intelligence (AAAI 2016)*.
