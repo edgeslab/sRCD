@@ -1,6 +1,6 @@
 # Relational Causal Discovery with $\sigma$-separation (sRCD)
 
-This is a modified version of the causal structure learning algorithm called Relational Causal Discovery (RCD). This version facilitates the experiments provided in the paper titled *Learning Relational Causal Models with Cycles through Relational Acyclification*. The original RCD implementation was released [here](https://kdl-umass.github.io/relational_causal_discovery.html) which is no longer available. A working copy of the original software can be found [here](https://github.com/ragib06/RCD). 
+This is a modified version of the causal structure learning algorithm called Relational Causal Discovery (RCD). This version facilitates the experiments provided in the paper titled *Learning Relational Causal Models with Cycles through Relational Acyclification*. The original RCD implementation was released [here](https://kdl-umass.github.io/relational_causal_discovery.html) which is no longer available. A working copy of the original software can be found [here](https://github.com/edgeslab/RCD). 
 
  
 ## Installations
